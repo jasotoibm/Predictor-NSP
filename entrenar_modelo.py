@@ -526,7 +526,7 @@ def entrenar(ruta, salida, latitud, longitud):
         "opciones": obtener_opciones(datos),
     }
 
-    joblib.dump(bundle, salida)
+    joblib.dump(bundle, salida, compress=5)
 
     print()
     print(f"Modelo guardado en: {salida}")
@@ -543,8 +543,8 @@ if __name__ == "__main__":
     parser.add_argument(
         "archivo",
         nargs="?",
-        default="GestionCitaciones(1).xls",
-        help="Ruta al Excel/XLS/CSV histórico.",
+        default="GestionCitas2025.xlsx",
+        help="Ruta al Excel/XLSX/CSV histórico.",
     )
     parser.add_argument(
         "--salida",
