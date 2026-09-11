@@ -127,15 +127,15 @@ if bundle is None:
 
 modelo = bundle["modelo"]
 metadata = bundle.get("metadata", {})
-opciones = bundle.get("opciones", {})
+opciones_modelo = bundle.get("opciones", {})
 features = metadata.get("features", [])
 
 
 # ============================================================
 # AYUDANTES DE INTERFAZ
 # ============================================================
-def opciones(columna, por_defecto):
-    vals = opciones.get(columna, [])
+def obtener_opciones_ui(columna, por_defecto):
+    vals = opciones_modelo.get(columna, [])
     vals = [str(x) for x in vals if str(x).strip()]
     return vals if vals else por_defecto
 
@@ -351,59 +351,59 @@ with tab2:
             )
             sexo = st.selectbox(
                 "Sexo",
-                opciones("SEXO_PACIENTE", ["FEMENINO", "MASCULINO"]),
+                obtener_opciones_ui("SEXO_PACIENTE", ["FEMENINO", "MASCULINO"]),
             )
             sector = st.selectbox(
                 "Sector",
-                opciones("SECTOR", ["AMARILLO", "ROJO", "RURAL", "CECOSF"]),
+                obtener_opciones_ui("SECTOR", ["AMARILLO", "ROJO", "RURAL", "CECOSF"]),
             )
             prevision = st.selectbox(
                 "Previsión",
-                opciones("PREVISION", ["FONASA - A", "FONASA - B", "FONASA - C", "FONASA - D"]),
+                obtener_opciones_ui("PREVISION", ["FONASA - A", "FONASA - B", "FONASA - C", "FONASA - D"]),
             )
 
         with c2:
             profesion = st.selectbox(
                 "Profesión",
-                opciones("PROFESION", ["MEDICO", "ENFERMERO", "PSICOLOGO"]),
+                obtener_opciones_ui("PROFESION", ["MEDICO", "ENFERMERO", "PSICOLOGO"]),
             )
             actividad = st.selectbox(
                 "Actividad",
-                opciones("ACTIVIDAD", ["MORBILIDAD", "CONTROL"]),
+                obtener_opciones_ui("ACTIVIDAD", ["MORBILIDAD", "CONTROL"]),
             )
             jornada = st.selectbox(
                 "Jornada",
-                opciones("JORNADA", ["MAÑANA", "TARDE", "EXTENSION HORARIA"]),
+                obtener_opciones_ui("JORNADA", ["MAÑANA", "TARDE", "EXTENSION HORARIA"]),
             )
             tipo_solicitud = st.selectbox(
                 "Tipo de solicitud",
-                opciones("TIPO_SOLICITUD", ["P. VENTANILLA", "TELEFONICO"]),
+                obtener_opciones_ui("TIPO_SOLICITUD", ["P. VENTANILLA", "TELEFONICO"]),
             )
             estab_origen = st.selectbox(
                 "Establecimiento de origen",
-                opciones("ESTAB_ORIGEN", ["CESFAM HUALQUI"]),
+                obtener_opciones_ui("ESTAB_ORIGEN", ["CESFAM HUALQUI"]),
             )
 
         with c3:
             ges = st.selectbox(
                 "GES",
-                opciones("GES", ["SIN_DATO"]),
+                obtener_opciones_ui("GES", ["SIN_DATO"]),
             )
             tipo_atencion = st.selectbox(
                 "Tipo de atención",
-                opciones("TIPO_ATENCION", ["CONSULTA", "CONTROL"]),
+                obtener_opciones_ui("TIPO_ATENCION", ["CONSULTA", "CONTROL"]),
             )
             categoria = st.selectbox(
                 "Categoría de atención",
-                opciones("CATEGORIA_ATENCION", ["CONSULTA", "CONTROL"]),
+                obtener_opciones_ui("CATEGORIA_ATENCION", ["CONSULTA", "CONTROL"]),
             )
             sobre_cupo = st.selectbox(
                 "Sobre cupo",
-                opciones("SOBRE_CUPO", ["N", "S"]),
+                obtener_opciones_ui("SOBRE_CUPO", ["N", "S"]),
             )
             especialidad = st.selectbox(
                 "Especialidad",
-                opciones("ESPECIALIDAD", ["CONSULTA / CONTROL"]),
+                obtener_opciones_ui("ESPECIALIDAD", ["CONSULTA / CONTROL"]),
             )
 
         st.markdown("#### Variables climáticas externas")
