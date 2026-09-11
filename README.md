@@ -68,7 +68,7 @@ Predictor-NSP/
 Ejecute:
 
 ```powershell
-py -3.13 .\entrenar_modelo.py "GestionCitaciones(1).xls"
+py -3.13 .\entrenar_modelo.py "GestionCitaciones.xls"
 ```
 
 El entrenamiento:
